@@ -1,0 +1,305 @@
+@use "sass:math";
+
+// 视口单位转换函数
+@function vw($px) {
+  @return math.div($px, 1920) * 100vw;
+}
+
+@function vh($px) {
+  @return math.div($px, 1080) * 100vh;
+}
+
+// 常用混合器
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 基础样式重置
+.main-bay {
+  * {
+    box-sizing: border-box;
+    line-height: 1;
+  }
+  :deep(.el-table) {
+    --el-table-bg-color: rgba(0, 0, 0, 0);
+    --el-table-tr-bg-color: rgba(0, 0, 0, 0);
+    --el-table-expanded-cell-bg-color: rgba(0, 0, 0, 0);
+    --el-table-header-bg-color: rgba(11, 57, 130, 0.322);
+    --el-table-header-text-color: #fff;
+    --el-table-text-color: #fff;
+    --el-table-row-hover-bg-color: rgba(25, 120, 198, 0.256);
+    --el-table-border: none;
+    --el-table-border-color: #73e0e800;
+    --el-font-size-base: 0.8vw;
+    .cell {
+      line-height: 1.5;
+      padding: 0 vw(12);
+    }
+    .el-table__cell {
+      padding: vw(7) 0;
+    }
+    .el-scrollbar {
+      padding-bottom: vw(10);
+    }
+    .el-table-fixed-column--right {
+      background: #0b306b96;
+      backdrop-filter: blur(vw(7));
+    }
+  }
+  :deep(.el-checkbox) {
+    --el-checkbox-text-color: #fff;
+    .el-checkbox__label {
+      font-size: vw(14);
+    }
+    .el-checkbox__inner {
+      width: vw(16);
+      height: vw(16);
+    }
+    height: vw(32);
+    .el-checkbox__label {
+      padding-left: vw(8);
+    }
+  }
+  ul,
+  li {
+    list-style: none;
+  }
+  .btn-1 {
+    --main-color: rgb(86, 170, 255);
+    --main-text-color: rgb(255, 255, 255);
+    --main-bg-color: rgb(46 140 213 / 36%);
+    --pattern-color: rgba(46, 213, 107, 0.073);
+    filter: hue-rotate(0deg);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.45vw;
+    text-shadow: 0 0 vw(8) rgb(20, 169, 255);
+    background: radial-gradient(
+        circle,
+        var(--main-bg-color) 0%,
+        rgba(0, 0, 0, 0) 95%
+      ),
+      linear-gradient(var(--pattern-color) vw(1), transparent vw(1)),
+      linear-gradient(to right, var(--pattern-color) vw(1), transparent vw(1));
+    background-size: cover, vw(15) vw(15), vw(15) vw(15);
+    background-position: center center, center center, center center;
+    border-image: radial-gradient(
+        circle,
+        var(--main-color) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      1;
+    border-width: vw(1) 0 vw(1) 0;
+    color: var(--main-text-color);
+    padding: vw(18) vw(40);
+    font-weight: 700;
+    font-size: vw(22);
+    transition: background-size 0.2s ease-in-out;
+  }
+
+  .btn-1:hover {
+    --main-color: rgb(48, 117, 255);
+    --main-bg-color: rgba(48, 134, 255, 0.534);
+    background-size: cover, vw(10) vw(10), vw(10) vw(10);
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    margin-bottom: vw(20);
+    border: vw(1) dashed rgba(3, 196, 255, 0.548);
+  }
+  .card-title {
+    font-size: vw(22);
+    padding: vw(10) vw(20);
+    letter-spacing: vw(2);
+    min-height: vh(60);
+    border: vw(1) solid #0f82c4c2;
+    text-shadow: 0 0 vw(8) rgba(255, 255, 255, 0.689);
+    border-image: linear-gradient(
+        90deg,
+        rgba(43, 117, 255, 0.598),
+        rgba(26, 99, 245, 0)
+      )
+      4;
+    background: linear-gradient(
+      90deg,
+      #0c96e041,
+      rgba(7, 58, 159, 0.16862745098039217)
+    );
+  }
+
+  // 滚动条样式
+  ::-webkit-scrollbar {
+    width: vw(6);
+    height: vw(6);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: vw(3);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .select-bay {
+    :deep(.el-select__wrapper) {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 0 vw(1) #0881c2 inset;
+    }
+    :deep(.el_select_popper) {
+      background-color: #00000075 !important; // 展开下拉背景
+      border: vw(1) solid #00000075 !important; // 展开下拉边框
+      color: #ffffff !important;
+      .el-popper__arrow::before {
+        border: vw(1) solid #00000075 !important; // 箭头按钮边框
+        background-color: #00000075 !important; // 箭头按钮背景色
+      }
+
+      .el-select-dropdown {
+        .is-hovering {
+          background-color: #2ad25c30; // 下拉hover背景
+          color: #2ad25c !important; // 选中
+        }
+      }
+      .el-select-dropdown__item.is-disabled {
+        color: #868686 !important; // 禁用
+      }
+      .el-select-dropdown__item.is-selected {
+        // background: #2ad25c30;
+        color: #2ad25c !important; // 选中
+        font-weight: bold;
+      }
+      .el-select-dropdown__item {
+        color: #fff !important;
+        height: vh(40);
+        line-height: vh(40);
+        padding: 0 vh(10);
+        font-size: vh(16);
+      }
+
+      .el-select-dropdown__list {
+        background: none;
+      }
+    }
+    :deep(.el-select__placeholder) {
+      color: #fff !important;
+    }
+    :deep(.el-select__wrapper) {
+      padding: vw(4) vw(14);
+      min-height: vh(38);
+      line-height: 1;
+      font-size: vh(16);
+    }
+    :deep(.el-select__caret) {
+      color: #fff;
+    }
+  }
+  .vr-btn {
+    background: #3a75c272;
+    border: vw(1) solid #3a8cc2;
+    border-radius: vw(8);
+    color: #fff;
+    font-size: vw(14);
+    font-weight: bold;
+    padding: vw(12) vw(20);
+    cursor: pointer;
+    z-index: 100;
+    &:hover {
+      background: #3a7ac2d7;
+    }
+  }
+  .bay-btn {
+    position: relative;
+    clip-path: polygon(var(--clipPath));
+    border-radius: 0;
+    min-width: vw(120);
+    text-align: center;
+    --clipPath: 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%, 15% 0%;
+    --borderWidrh: vw(2);
+    --color: #3a8cc2;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      mask: paint(borderDraw);
+      background: var(--color);
+    }
+  }
+  .bay-btn-m {
+    position: relative;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      border: vw(2) solid #3fadf6;
+      width: vw(30);
+      height: vw(30);
+      border-left-color: transparent;
+      border-top-color: transparent;
+      transform: rotate(136deg);
+      top: vw(5);
+      left: vw(-2);
+    }
+    &::before {
+      content: "";
+      transform: rotate(314deg);
+      left: auto;
+      right: vw(-2);
+    }
+  }
+}
+// echarts-tooltip 统一样式
+:deep(.tooltip-box) {
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+:deep(.tooltip-style) {
+  width: fit-content;
+  padding: vw(10) vw(20);
+  font-size: vw(18);
+  color: #fff;
+  background: #000000b8;
+  border: vw(1) solid #ffffff47;
+  border-radius: vw(10);
+  backdrop-filter: blur(vw(10));
+
+  div {
+    width: 100%;
+    margin-bottom: vw(5);
+  }
+
+  p {
+    font-size: vw(16);
+    line-height: 1.5;
+  }
+}
+.bay-dialog {
+  padding: vw(24) vw(32) vw(16);
+  background: #000000b8;
+  border-radius: vw(8);
+  min-height: vh(800);
+  border: vw(1) solid #ffffff47;
+  .el-dialog__header {
+    display: none;
+  }
+}
