@@ -71,19 +71,20 @@ const generateOption = () => {
                 fontSize: computeFontSize(14),
                 color: '#fff',
             },
-            data: ['轨旁ap设备', '地铁LTE_M基站', '外部Wifi设备', '2.4G其他干扰', '1.8G同频干扰', '1.8G邻频干扰']
+            data: ['公网信号', '2.4G WiFi信号', '5.8GWiFi信号', '专网信号']
         }
 
         ],
         series: [{
             name: '设备统计',
             type: 'bar',
-            barWidth: computeFontSize(14),
+            barWidth: computeFontSize(20),
             label: {
                 normal: {
                     show: true,
                     position: 'right',
                     formatter: '{c}',
+                    offset: [0, 1],
                     textStyle: {
                         color: 'white',
                         fontSize: computeFontSize(12)
@@ -108,7 +109,7 @@ const generateOption = () => {
             },
             barGap: '0%',
             barCategoryGap: '50%',
-            data: [20, 13, 40, 34, 10, 20],
+            data: [20, 13, 40, 34],
             animation: true,
             animationDuration: 800,
             animationEasing: 'cubicOut',

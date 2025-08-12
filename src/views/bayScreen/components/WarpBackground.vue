@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-main" :class="['relative rounded border md-p-20', props.class]">
+  <div class="bg-main" :class="['relative rounded border', props.class]">
     <div
       :style="{
         '--perspective': `${props.perspective}px`,
@@ -72,12 +72,12 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  perspective: 100,
-  beamsPerSide: 3,
-  beamSize: 5,
+  perspective: 80,
+  beamsPerSide: 10,
+  beamSize: 1,
   beamDelayMax: 3,
   beamDelayMin: 0,
-  beamDuration: 3,
+  beamDuration: 4,
   gridColor: "hsl(var(--border))",
 });
 
@@ -113,21 +113,14 @@ const rightBeams = generateBeams();
   position: relative;
 }
 
-.md-p-20 {
-  @media (min-width: 768px) {
-    padding: 5rem; // 20 * 0.25rem
-  }
-}
-
 .rounded {
-  border-radius: 0.25rem;
+  border-radius: vw(5);
 }
 
 .border {
-  border: 1px solid currentColor;
+  border: vw(1) solid currentColor;
 }
 
-/* grid container */
 .grid-container {
   pointer-events: none;
   position: absolute;
@@ -147,10 +140,10 @@ const rightBeams = generateBeams();
   position: absolute;
   background-size: var(--beam-size) var(--beam-size);
   background-image:
-    linear-gradient(var(--grid-color) 0 1px, transparent 1px var(--beam-size)),
-    linear-gradient(90deg, var(--grid-color) 0 1px, transparent 1px var(--beam-size));
+    linear-gradient(var(--grid-color) 0 vw(1), transparent vw(1) var(--beam-size)),
+    linear-gradient(90deg, var(--grid-color) 0 vw(1), transparent vw(1) var(--beam-size));
   container-type: inline-size;
-  height: 100cqmax;
+  height: vw(10);
   transform-style: preserve-3d;
 }
 

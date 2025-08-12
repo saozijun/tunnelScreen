@@ -48,5 +48,7 @@ const ar = computed(() => Math.floor(Math.random() * 10) + 1);
   width: var(--width);
   aspect-ratio: 1 / var(--aspect-ratio);
   background: var(--background);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.5rem rgba(32, 121, 255, 0.95));
 }
 </style>

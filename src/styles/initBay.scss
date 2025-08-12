@@ -45,7 +45,7 @@
     --el-table-row-hover-bg-color: rgba(25, 120, 198, 0.256);
     --el-table-border: none;
     --el-table-border-color: #73e0e800;
-    --el-font-size-base: 0.8vw;
+    --el-font-size-base: 0.7vw;
     .cell {
       line-height: 1.5;
       padding: 0 vw(12);
@@ -125,12 +125,14 @@
     border: vw(1) dashed rgba(3, 196, 255, 0.548);
   }
   .card-title {
-    font-size: vw(22);
+    font-size: vw(18);
+    font-weight: bold;
     padding: vw(10) vw(20);
     letter-spacing: vw(2);
-    min-height: vh(60);
+    min-height: vh(50);
     border: vw(1) solid #0f82c4c2;
     text-shadow: 0 0 vw(8) rgba(255, 255, 255, 0.689);
+    @include flex-between;
     border-image: linear-gradient(
         90deg,
         rgba(43, 117, 255, 0.598),
@@ -275,8 +277,8 @@
 }
 :deep(.tooltip-style) {
   width: fit-content;
-  padding: vw(10) vw(20);
-  font-size: vw(18);
+  padding: vw(16) vw(18);
+  font-size: vw(16);
   color: #fff;
   background: #000000b8;
   border: vw(1) solid #ffffff47;
@@ -289,7 +291,7 @@
   }
 
   p {
-    font-size: vw(16);
+    font-size: vw(14);
     line-height: 1.5;
   }
 }

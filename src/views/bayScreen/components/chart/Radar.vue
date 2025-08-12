@@ -55,11 +55,11 @@ const generateOption = () => {
                 }
             },
             indicator: [
-                { name: '轨旁AP覆盖丢失', max: 100 },
-                { name: '轨旁LTE覆盖丢失', max: 100 },
-                { name: '1.8G同频干扰', max: 100 },
-                { name: '2.4G普通干扰', max: 100 },
-                { name: '2.4G外部强干扰', max: 100 }
+                { name: '信号强度', max: 100 },
+                { name: 'SNR', max: 100 },
+                { name: '邻频干扰', max: 100 },
+                { name: '同频干扰', max: 100 },
+                { name: '时延', max: 100 }
             ]
         },
         series: [
