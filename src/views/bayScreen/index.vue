@@ -45,14 +45,14 @@ const handleMenu = (index) => {
   user-select: none;
   -webkit-user-select: none;
   overflow: hidden;
-  background: url("../../assets/screen/bg3.jpg") no-repeat;
-  background-size: 100% 100%;
+  background: url("../../assets/screen/bg6.jpeg") no-repeat center center;
+  background-size: cover;
   .bg {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 0;
-    background-color: rgba(5, 27, 76, 0.507);
+    background-color: rgba(5, 27, 76, 0.151);
   }
   .title {
     width: 100%;
