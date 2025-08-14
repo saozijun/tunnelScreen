@@ -124,10 +124,10 @@ const rightBeams = generateBeams();
 .grid-container {
   pointer-events: none;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: -18%;
+  top: -25%;
+  width: 180%;
+  height: 130%;
   overflow: hidden;
   clip-path: inset(0);
   container-type: size;
@@ -171,7 +171,7 @@ const rightBeams = generateBeams();
   left: 0;
   width: 100cqh;
   transform-origin: 0% 0%;
-  transform: rotate(90deg) rotateX(-90deg);
+  transform: rotate(90deg) rotateX(-90deg );
 }
 
 /* RIGHT */

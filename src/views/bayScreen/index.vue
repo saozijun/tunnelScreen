@@ -45,12 +45,13 @@ const handleMenu = (index) => {
   user-select: none;
   -webkit-user-select: none;
   overflow: hidden;
-  background: url("../../assets/screen/bg7.jpeg") no-repeat center center;
+  background: url("../../assets/screen/bg10.jpeg") no-repeat center center;
   background-size: cover;
   .bg {
     width: 100%;
     height: 100%;
     position: absolute;
+    overflow: hidden;
     z-index: 0;
     background-color: #051b4c56;
   }
@@ -58,6 +59,16 @@ const handleMenu = (index) => {
     width: 100%;
     position: relative;
     z-index: 11;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      background: linear-gradient(to bottom, rgba(5, 102, 171, 0.638), rgba(0, 0, 0, 0));
+      z-index: -1;
+    }
   }
 }
 </style>
