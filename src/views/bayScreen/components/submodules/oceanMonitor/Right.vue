@@ -65,7 +65,7 @@ import DynamicLine from '../../chart/DynamicLine.vue'
 
   .card-content {
     width: 100%;
-    height: vh(340);
+    height: 30vh;
     background: linear-gradient(90deg, #0984c743, #0965c733, #0965c700);
 
     .content-box {
@@ -77,7 +77,7 @@ import DynamicLine from '../../chart/DynamicLine.vue'
   }
 
   .card-content2 {
-    height: vh(180);
+    height: 16.5vh;
     padding: vw(10);
   }
 }

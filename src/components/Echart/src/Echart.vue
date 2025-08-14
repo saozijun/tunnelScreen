@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineOptions, onActivated, onBeforeUnmount, onMounted, ref, unref, watch } from 'vue'
+import { computed, onActivated, onBeforeUnmount, onMounted, ref, unref, watch } from 'vue'
 import echarts from '@/plugins/echarts'
 import { debounce } from 'lodash-es'
 import 'echarts-wordcloud'

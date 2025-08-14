@@ -160,7 +160,7 @@ const warningData = ref([
 
 .card-content {
   width: 100%;
-  height: vh(340);
+  height: 30vh;
   background: linear-gradient(90deg, #0984c743, #0965c733, #0965c700);
 
   .content-box {
@@ -181,7 +181,7 @@ const warningData = ref([
 }
 
 .radar-box {
-  height: vh(430);
+  height: 40vh;
 }
 
 .pie-container {

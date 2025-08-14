@@ -25,7 +25,7 @@ import Right from './Right.vue'
 }
 .left,
 .right {
-  width: vw(600);
+  width: 31vw;
   height: 100vh;
   position: absolute;
   top: 0;
